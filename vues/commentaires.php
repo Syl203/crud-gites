@@ -1,0 +1,1 @@
+<a href="ajouter-commentaire?id_gite=<?= $_GET["id_gite"] ?>">Ajouter un commentaire</a>

@@ -1,0 +1,221 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "../../node_modules/bootstrap-icons/font//bootstrap-icons.css";
+
+html{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main{
+
+    header{
+        width:100%;
+        height: 80px;
+        color: #FFFFFF;
+        background-color: rgba(255,255,255,0.4);
+        text-shadow: 1px 1px 2px rgba(0,0,0,1);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: absolute;
+
+
+        img{
+            width: 71px;
+            margin: 5px 0 9px 100px;
+        }
+
+        input{
+            border-radius: 13px 0 0 13px;
+            height: 45px;
+            width: 280px;
+            margin: 0;
+            padding: 5px;
+            border: 3px solid #000000;
+            border-right: none;
+        }
+
+        button{
+            height: 45px;
+            border-radius : 0 13px 13px 0;
+            margin: -2px 0 0 -7px; 
+            padding: 5px;
+            border-right: 3px solid #000000;
+            border-left: none;
+            border-top: 3px solid #000000;
+            border-bottom: 3px solid #000000;
+        }
+        
+
+        ul{
+            list-style-type: none;
+            margin-right: 80px;
+
+            li{
+
+                a{
+                    font-size: 18px;
+                    text-decoration: none;
+                    color: #E5E5E5;
+                    
+                    &:hover{
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+    }
+
+    .bloc-1{
+        width: 100%;
+        height: 80vh;
+        //background-image: url('../../assets/img/banniere2.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container{
+
+        .row, .row-admin{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+
+            .ajout-gite, .modif-gite, .ajout-commentaire{
+                margin: 30px auto;
+                padding: 15px;
+                width: 680px;
+                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+                input, textarea{
+                    width: 450px;
+                }
+                textarea{
+                    height: 200px;
+                }
+
+                #prix{
+                    width: 120px;
+                }
+            }
+            
+            .ajout-commentaire{
+
+                img{
+                    width: 120px;
+                    margin : 30px;
+                }
+            }
+            .gite_admin{
+                width: 400px;
+                min-height: 420px;
+                padding: 10px;
+                box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+
+                h2{font-size: 18px;}
+                img{width: 100%;}
+            }
+
+            .gite-details{
+                width: 700px;
+                padding: 25px;
+                box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+                margin : 30px auto;
+
+                img{width: 100%;}
+
+                .chambres, .personnes, .sdb{
+                    font-weight: bold;
+                    margin: 0;
+                }
+
+                .prix{
+                    color: $green-500;
+                    font-size: 18px;
+                    margin-top: 15px;
+                }
+
+                .commentaires{
+                    display:block;
+                }
+
+            }
+
+            .gite{
+                width: 280px;
+                min-height: 420px;
+                padding: 10px;
+                box-shadow: 1px 1px 10px rgba(0,0,0,0.5);
+                transition: all 0.3s ease-in-out;
+                position: relative;
+
+                h2{
+                    font-size: 18px;
+                }
+
+                img{
+                    width: 260px;
+                }
+
+                p{
+                    font-size: 13px;
+                    text-align: justify;
+                }
+
+                .chambres, .personnes, .sdb{
+                    font-weight: bold;
+                    margin: 0;
+                }
+                .prix{
+                    color: $green-500;
+                    font-size: 14px;
+                    margin-top: 15px;
+                }
+                .rouge{
+                    color: $red-400;
+                }
+
+                &:hover{
+                    transform: scale(1.05);
+                }
+
+                .details{
+                    position: absolute;
+                    bottom: 10px;
+                }
+
+                .comment{
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                }
+                
+            }
+        }
+        .formulaire-admin{
+            margin: 20px auto;
+            width: 400px;
+        }
+        .formulaire-user{
+            margin: 20px auto;
+            width: 400px;
+        }
+        .formulaire-inscription{
+            margin: 20px auto;
+            width: 400px;
+        }
+        
+        
+    }
+    footer{
+        margin-top: 50px;
+        background-color: #8bb5e9;
+        height: 100px;
+
+        a{
+            color: #FFFFFF;
+            text-decoration: none;
+        }
+    }
+}
