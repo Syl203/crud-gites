@@ -1,14 +1,15 @@
 <?php
 session_start();
 ob_start();
-//Les options passées dans URL
-////Si dans url, un paramètre $_GET['url'] existe
-/// Soit index.php?url="quelquechose"
+// Les options passées dans URL
+// Si dans url, un paramètre $_GET['url'] existe
+// Soit index.php?url="quelquechose"
 if(isset($_GET['url'])){
     $url = $_GET['url'];
 }else{
     $url = "accueil";
 }
+
 //Si $url retourne une chaine de caractères vide
 if($url === ""){
     //On redirige vers la page d'accueil
@@ -63,7 +64,15 @@ elseif($url === "modifier-gite" && isset($_GET["id_gite"]) && isset($_SESSION["a
     $title = "Modifier un gite | Location";
     require_once "vues/modifier-gite.php";
 }
-elseif ($url === "administration"){
+elseif($url === "reservation" && isset($_SESSION["user"]) && isset($_GET["id_gite"])){
+    $title = "Réserver un gite | Location";
+    require_once "vues/reservation.php";
+}
+elseif($url === "confirmer-reservation" && isset($_GET["id_gite"])){
+    $title = "Confirmer la réservation d'un gite | Location";
+    require_once "vues/confirmer-reservation.php";
+}
+elseif ($url === "administration" && isset($_SESSION["admin"])){
     $title = "Administration | Location";
     require_once "vues/administration.php";
     //Si $url est différent de tableau de valeurs [#:0-9A-Za-z]

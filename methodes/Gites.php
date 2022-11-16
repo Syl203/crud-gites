@@ -194,4 +194,47 @@ class Gites extends Database{
             }
         }
     }
+
+    public function getGitesDispos(){
+        $bdd = $this->getPDO();
+        $today = date('Y-m-d');
+
+        $req = "SELECT * FROM gites 
+                INNER JOIN categories ON gites.gite_categorie = categories.id_categorie 
+                INNER JOIN regions ON gites.zone_geographique = regions.id 
+                WHERE date_depart < '".$today."' AND disponible = 1";
+
+        $gitesDispo = $bdd->query($req);
+
+        return $gitesDispo;
+
+    }
+
+    public function getGitesIndispos(){
+        $bdd = $this->getPDO();
+        $today = date('Y-m-d');
+
+        $req = "SELECT * FROM gites 
+                INNER JOIN categories ON gites.gite_categorie = categories.id_categorie 
+                INNER JOIN regions ON gites.zone_geographique = regions.id 
+                WHERE date_depart > '".$today."' AND disponible = 1";
+
+        $gitesIndispo = $bdd->query($req);
+
+        return $gitesIndispo;
+    }
+
+    public function updateDate(){
+        $bdd = $this->getPDO();
+        $date_arrivee = $_POST['date-arrivee'];
+        $date_depart = $_POST["date-depart"];
+        $id_gite = $_GET["id_gite"];
+
+        $sql = "UPDATE gites SET date_arrivee = ?, date_depart = ? WHERE id_gite = ?";
+        $req = $bdd->prepare($sql);
+        $req->bindParam(1, $date_arrivee);
+        $req->bindParam(2, $date_depart);
+        $req->bindParam(3, $id_gite);
+        $req->execute();
+    }
 }

@@ -2,7 +2,6 @@
 require_once "methodes/Utilisateur.php"; 
 
 if(isset($_SESSION["user"])){
-    echo 'session ok';
     header('Location: accueil');
 }
 $user = new Utilisateur();

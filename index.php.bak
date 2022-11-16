@@ -1,0 +1,89 @@
+<?php
+session_start();
+ob_start();
+// Les options passées dans URL
+// Si dans url, un paramètre $_GET['url'] existe
+// Soit index.php?url="quelquechose"
+if(isset($_GET['url'])){
+    $url = $_GET['url'];
+}else{
+    $url = "accueil";
+}
+
+//Si $url retourne une chaine de caractères vide
+if($url === ""){
+    //On redirige vers la page d'accueil
+    $url = "accueil";
+}
+//Si $url = "accueil"
+if($url === "accueil"){
+	$title = "Accueil | Location";
+    require_once "vues/accueil.php";
+}
+elseif ($url === "erreur-404"){
+	$title = "Erreur 404 | Location";
+    require_once "vues/404.php";
+}
+elseif ($url === "inscription"){
+	$title = "Inscription | Location";
+    require_once "vues/inscription.php";
+}
+elseif ($url === "connexion"){
+	$title = "Formulaire de connexion | Location";
+    require_once "vues/connexion.php";
+}
+elseif ($url === "deconnexion"){
+	$title = "déconnexion | Location";
+    require_once "vues/deconnexion.php";
+}
+elseif ($url === "admin"){
+    $title = "Administration | Location";
+    require_once "vues/admin.php";
+}
+elseif($url === "details" && isset($_GET["id_gite"]) && $_GET["id_gite"] > 0){
+    $title = "Détails du gite | Location";
+    require_once "vues/details.php";
+}
+elseif($url === "ajouter-gite" && isset($_SESSION["admin"])){
+    $title = "Ajouter un gite | Location";
+    require_once "vues/ajouter-gite.php";
+}
+elseif($url === "commentaires" && isset($_GET["id_gite"])){
+    $title = "Les commentaires | Location";
+    require_once "vues/commentaires.php";
+}
+elseif($url === "ajouter-commentaire" && isset($_SESSION["user"]) && isset($_GET["id_gite"])){
+    $title = "Laisser un commentaire | Location";
+    require_once "vues/ajouter-commentaire.php";
+}
+elseif($url === "supprimer-gite" && isset($_GET["id_gite"]) && isset($_SESSION["admin"])){
+    $title = "Supprimer un gite | Location";
+    require_once "vues/supprimer-gite.php";
+}
+elseif($url === "modifier-gite" && isset($_GET["id_gite"]) && isset($_SESSION["admin"])){
+    $title = "Modifier un gite | Location";
+    require_once "vues/modifier-gite.php";
+}
+elseif($url === "reservation" && isset($_SESSION["user"]) && isset($_GET["id_gite"])){
+    $title = "Réserver un gite | Location";
+    require_once "vues/reservation.php";
+}
+elseif($url === "confirmer-reservation" && isset($_GET["id_gite"])){
+    $title = "Confirmer la réservation d'un gite | Location";
+    require_once "vues/confirmer-reservation.php";
+}
+elseif ($url === "administration" && isset($_SESSION["estconnecte"]) && $_SESSION["estconnecte"]==true){
+    $title = "Administration | Location";
+    require_once "vues/administration.php";
+    //Si $url est différent de tableau de valeurs [#:0-9A-Za-z]
+}elseif($url !=  '#:[\w]+)#'){
+	$title = "Accueil | Location";
+    //On redirige vers la page d'accueil
+    header("Location: accueil");
+}
+
+$content = ob_get_clean();
+
+require_once "template.php";
+
+?>

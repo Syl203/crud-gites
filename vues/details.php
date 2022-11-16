@@ -23,7 +23,33 @@ $comments = $commentaires->getComments();
         <a class="btn btn-success" href="accueil">Retour</a>
         <?php 
             if(isset($_SESSION["user"])){
-                echo '<a href="reserver-gite'.$details["id_gite"].'" class="btn btn-primary">Réserver</a>';
+                echo '<a class="btn btn-primary" id="clic-resa">Réserver</a>';
+        ?>
+
+                <div class="reservation mt-4" id="reservation">
+                    <h2>Formulaire de réservation</h2>
+                    <form method="post" action="reservation?id_gite=<?= $details["id_gite"] ?>">
+                        <div class="mt-3">
+                            <label for="email_user">Votre email</label>
+                            <input type="email" id="email_user" name="email_user" class="form-control" value="<?= $_SESSION["email_user"] ?>">
+                        </div>
+
+                        <div class="mt-3">
+                            <label for="date-arrivee">Date d'arrivée souhaitée</label>
+                            <input type="date" id="date-arrivee" name="date-arrivee" class="form-control">
+                        </div>
+
+                        <div class="mt-3">
+                            <label for="date-depart">Date de départ souhaitée</label>
+                            <input type="date" id="date-depart" name="date-depart" class="form-control">
+                        </div>
+                        <div class="mt-3">
+                            <button type="submit" class="btn btn-success" id="btn-resa">Réserver</button>
+                        </div>
+                    </form>
+                </div>
+
+        <?php
             }
         ?>
         <?php

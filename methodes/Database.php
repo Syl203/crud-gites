@@ -8,7 +8,9 @@ class Database{
 
     public function getPDO(){
         try{
-            $bdd = new PDO("mysql:host=". $this->host .";dbname=".$this->base.";charset=UTF8", $this->user, $this->pass);
+            $bdd = new PDO("mysql:host=". $this->host .";
+							dbname=".$this->base.";
+							charset=UTF8", $this->user, $this->pass);
             $bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch(PDOException $e){

@@ -35,6 +35,7 @@
             </ul>
         </header>
         <div id="bloc-1" class="bloc-1"></div>
+		
         <div class="container">
             <?= $content ?>
         </div>
@@ -45,8 +46,12 @@
         </footer>
 
     </div>
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
     <script type="text/javascript">
-
+        $("#clic-resa").click(function(){
+            $("#reservation").slideDown("slow");
+            $("#clic-resa").fadeOut();
+        })
     </script>
 </body>
 </html>

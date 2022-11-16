@@ -76,6 +76,14 @@ if(isset($_POST["clic-ajout"])){
                 </select>
             </div>
             <div class="mt-3">
+                <label for="date_arrivee">Date de la denière arrivée :
+                <input type="date" name="date_arrivee" id="date_arrivee" class="form-control">
+            </div>
+            <div class="mt-3">
+                <label for="date_depart">Date du dernier départ :
+                <input type="date" name="date_depart" id="date_depart" class="form-control">
+            </div>
+            <div class="mt-3">
                 <label for="region">Zone géographique :
                 <select name="region" id="region" class="form-control">
                     <?php

@@ -12109,6 +12109,32 @@ html {
   display: block;
 }
 
+.main .container .row .gite-details .reservation, .main .container .row-admin .gite-details .reservation {
+  display: none;
+}
+
+.main .container .row .gite-indispo, .main .container .row-admin .gite-indispo {
+  opacity: 0.3;
+}
+
+.main .container .row .gite-indispo .details, .main .container .row-admin .gite-indispo .details {
+  display: none;
+}
+
+.main .container .row .gite-indispo .dispo, .main .container .row-admin .gite-indispo .dispo {
+  color: red;
+  opacity: 1;
+}
+
+.main .container .row .gite-indispo .comment, .main .container .row-admin .gite-indispo .comment {
+  display: none;
+}
+
+.main .container .row .gite-indispo:hover, .main .container .row-admin .gite-indispo:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 .main .container .row .gite, .main .container .row-admin .gite {
   width: 280px;
   min-height: 420px;

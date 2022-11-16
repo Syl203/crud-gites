@@ -1,0 +1,17 @@
+{
+    "name": "acs/urlrewriting",
+    "autoload": {
+        "psr-4": {
+            "Acs\\Urlrewriting\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Syl203",
+            "email": "mounier.sylv1@gmail.com"
+        }
+    ],
+    "require": {
+        "phpmailer/phpmailer": "^6.6"
+    }
+}

@@ -140,6 +140,27 @@ html{
                     display:block;
                 }
 
+                .reservation{
+                    display: none;
+                }
+            }
+
+            .gite-indispo{
+                opacity: 0.3;
+                
+                .details{
+                    display: none;
+                }
+                .dispo{
+                    color: red;
+                    opacity : 1;
+                }
+                .comment{
+                    display:none;
+                }
+                &:hover{
+                    transform : scale(1);
+                }
             }
 
             .gite{
